@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-11137298982"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-11137298982');
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-23S8VQDB90"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-23S8VQDB90');
+</script>
+    <script>
+        function gtag_report_conversion(url) {
+            var callback = function () {
+                if (typeof (url) != 'undefined') {
+                    window.location = url;
+                }
+            };
+            gtag('event', 'Add');
+            gtag('event', 'conversion', {
+                'send_to': 'AW-11137298982/-yVUCL6ryM8aEKbk1r4p',
+                'transaction_id': '',
+                'event_callback': callback
+            });
+            return false;
+        }
+    </script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>AI Stock Diagnostics - Smart Analysis Tool</title>
+    <link rel="stylesheet" href="static/css/main.css">
+    <script src="static/js/main.js"></script>
+</head>
+<body>
+    <div class="glass-background">
+        <div class="gradient-orb orb-1"></div>
+        <div class="gradient-orb orb-2"></div>
+        <div class="gradient-orb orb-3"></div>
+        <div class="light-particles"></div>
+    </div>
+
+    <main class="main-content">
+        <header class="page-header">
+            <div class="header-content">
+                <h1 class="brand-title">AI Stock Diagnostics</h1>
+                <p class="brand-tagline">Intelligent market analysis powered by AI</p>
+            </div>
+        </header>
+
+        <section class="content-sections">
+            <div class="section-grid">
+                <div class="glass-card market-snapshot">
+                    <div class="card-header">
+                        <h2 class="card-title">Market Snapshot</h2>
+                        <span class="update-badge">Live</span>
+                    </div>
+                    <div class="stats-row">
+                        <div class="stat-item">
+                            <div class="stat-label">S&P 500</div>
+                            <div class="stat-value">4,567.89</div>
+                            <div class="stat-change positive">+1.24%</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-label">NASDAQ</div>
+                            <div class="stat-value">14,234.56</div>
+                            <div class="stat-change positive">+0.89%</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-label">DOW</div>
+                            <div class="stat-value">35,678.12</div>
+                            <div class="stat-change negative">-0.34%</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-card trending-stocks">
+                    <div class="card-header">
+                        <h2 class="card-title">Trending Now</h2>
+                    </div>
+                    <div class="trending-list">
+                        <div class="trending-item">
+                            <div class="trending-left">
+                                <span class="stock-symbol">AAPL</span>
+                                <span class="stock-name">Apple Inc.</span>
+                            </div>
+                            <div class="trending-right">
+                                <span class="stock-price">$178.45</span>
+                                <span class="stock-change positive">+2.3%</span>
+                            </div>
+                        </div>
+                        <div class="trending-item">
+                            <div class="trending-left">
+                                <span class="stock-symbol">TSLA</span>
+                                <span class="stock-name">Tesla Inc.</span>
+                            </div>
+                            <div class="trending-right">
+                                <span class="stock-price">$242.89</span>
+                                <span class="stock-change positive">+4.7%</span>
+                            </div>
+                        </div>
+                        <div class="trending-item">
+                            <div class="trending-left">
+                                <span class="stock-symbol">NVDA</span>
+                                <span class="stock-name">NVIDIA Corp.</span>
+                            </div>
+                            <div class="trending-right">
+                                <span class="stock-price">$495.21</span>
+                                <span class="stock-change positive">+5.1%</span>
+                            </div>
+                        </div>
+                        <div class="trending-item">
+                            <div class="trending-left">
+                                <span class="stock-symbol">MSFT</span>
+                                <span class="stock-name">Microsoft Corp.</span>
+                            </div>
+                            <div class="trending-right">
+                                <span class="stock-price">$378.92</span>
+                                <span class="stock-change positive">+1.8%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-card chart-demo">
+                    <div class="card-header">
+                        <h2 class="card-title">Market Overview</h2>
+                    </div>
+                    <div class="chart-container">
+                        <svg viewBox="0 0 400 180" class="chart-svg">
+                            <defs>
+                                <linearGradient id="chartGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#4E54C8;stop-opacity:0.3" />
+                                    <stop offset="100%" style="stop-color:#4E54C8;stop-opacity:0" />
+                                </linearGradient>
+                            </defs>
+                            <polyline
+                                fill="url(#chartGradient)"
+                                stroke="none"
+                                points="0,180 0,120 40,110 80,95 120,100 160,85 200,75 240,80 280,60 320,55 360,45 400,50 400,180"
+                            />
+                            <polyline
+                                fill="none"
+                                stroke="#4E54C8"
+                                stroke-width="2.5"
+                                points="0,120 40,110 80,95 120,100 160,85 200,75 240,80 280,60 320,55 360,45 400,50"
+                            />
+                        </svg>
+                    </div>
+                </div>
+
+                <div class="glass-card features-grid">
+                    <div class="card-header">
+                        <h2 class="card-title">Analysis Features</h2>
+                    </div>
+                    <div class="features-list">
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <div class="feature-content">
+                                <div class="feature-title">Real-time Data</div>
+                                <div class="feature-desc">Live market data processing</div>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M21 16V8C21 6.895 20.105 6 19 6H5C3.895 6 3 6.895 3 8V16C3 17.105 3.895 18 5 18H19C20.105 18 21 17.105 21 16Z" stroke="currentColor" stroke-width="2"/>
+                                    <path d="M7 10L10 13L17 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <div class="feature-content">
+                                <div class="feature-title">AI Analysis</div>
+                                <div class="feature-desc">Advanced pattern recognition</div>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M18 20V10M12 20V4M6 20V14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <div class="feature-content">
+                                <div class="feature-title">Technical Indicators</div>
+                                <div class="feature-desc">Comprehensive metrics</div>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                                    <path d="M12 6V12L16 14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                </svg>
+                            </div>
+                            <div class="feature-content">
+                                <div class="feature-title">News Sentiment</div>
+                                <div class="feature-desc">Multi-source analysis</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="page-footer">
+            <div class="footer-content">
+                <a href="contact/privacy.html" class="footer-link">Privacy</a>
+                <span class="footer-dot">•</span>
+                <a href="contact/terms.html" class="footer-link">Terms</a>
+                <span class="footer-dot">•</span>
+                <span class="footer-text">For informational purposes only</span>
+            </div>
+        </footer>
+    </main>
+
+    <div class="floating-bar">
+        <div class="bar-container">
+            <div class="quick-tags">
+                <button class="tag-btn" data-symbol="AAPL">AAPL</button>
+                <button class="tag-btn" data-symbol="TSLA">TSLA</button>
+                <button class="tag-btn" data-symbol="NVDA">NVDA</button>
+                <button class="tag-btn" data-symbol="MSFT">MSFT</button>
+            </div>
+            <div class="input-group">
+                <input
+                    type="text"
+                    id="stockInput"
+                    class="stock-input"
+                    placeholder="Enter stock symbol..."
+                    autocomplete="off"
+                />
+                <button class="analyze-btn" id="analyzeBtn">
+                    <span>Analyze</span>
+                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M3 9H15M15 9L10 4M15 9L10 14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="overlay-modal" id="analysisModal">
+        <div class="overlay-backdrop"></div>
+        <div class="overlay-content">
+            <button class="close-btn" id="closeModal">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+            </button>
+
+            <div class="progress-view" id="progressView">
+                <div class="modal-glass-card">
+                    <div class="spinner">
+                        <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="32" cy="32" r="28" stroke="currentColor" stroke-width="4" opacity="0.2"/>
+                            <path d="M32 4C32 4 60 16 60 32" stroke="currentColor" stroke-width="4" stroke-linecap="round" class="spin-path"/>
+                        </svg>
+                    </div>
+                    <h3 class="progress-title">Analyzing Stock Data</h3>
+                    <div class="progress-steps">
+                        <div class="step-item">
+                            <span class="step-text">Fetching market data</span>
+                            <div class="step-bar"><div class="step-fill" id="step1"></div></div>
+                        </div>
+                        <div class="step-item">
+                            <span class="step-text">Processing indicators</span>
+                            <div class="step-bar"><div class="step-fill" id="step2"></div></div>
+                        </div>
+                        <div class="step-item">
+                            <span class="step-text">Analyzing sentiment</span>
+                            <div class="step-bar"><div class="step-fill" id="step3"></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="result-view" id="resultView" style="display:none;">
+                <div class="modal-glass-card">
+                    <div class="success-icon">
+                        <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="32" cy="32" r="28" stroke="currentColor" stroke-width="4"/>
+                            <path d="M20 32L28 40L44 24" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3 class="result-title"><span id="stockCode"></span>Analysis Complete</h3>
+                    <p class="result-desc">Your comprehensive stock diagnostic report is ready with real-time data, technical indicators, and market sentiment analysis.</p>
+
+                    <div class="result-items">
+                        <div class="result-item">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M16 6L7 15L3 11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <span>Market data processed</span>
+                        </div>
+                        <div class="result-item">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M16 6L7 15L3 11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <span>Technical analysis completed</span>
+                        </div>
+                        <div class="result-item">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M16 6L7 15L3 11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <span>Sentiment evaluation ready</span>
+                        </div>
+                    </div>
+
+                    <button class="report-btn" id="reportBtn">
+                        Get Full Report
+                    </button>
+
+                    <p class="disclaimer">Analysis for informational purposes only. Not investment advice.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="cookieBanner" class="cookie-banner">
+        <span class="cookie-msg">We use cookies to enhance your experience.</span>
+        <button id="cookieAccept" class="cookie-btn">Accept</button>
+    </div>
+</body>
+
+</html>

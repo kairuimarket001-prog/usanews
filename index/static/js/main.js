@@ -1,118 +1,122 @@
 document.addEventListener('DOMContentLoaded', async function() {
-  var cookieBanner = document.getElementById('cookieBanner');
-  var cookieAccept = document.getElementById('cookieAccept');
-  var stockInput = document.getElementById('stockInput');
-  var analyzeBtn = document.getElementById('analyzeBtn');
-  var tagBtns = document.querySelectorAll('.tag-btn');
-  var modal = document.getElementById('analysisModal');
-  var closeModal = document.getElementById('closeModal');
-  var progressView = document.getElementById('progressView');
-  var resultView = document.getElementById('resultView');
-  var reportBtn = document.getElementById('reportBtn');
-  var stockCodeEl = document.getElementById('stockCode');
+  var cookie = document.getElementById('cookie');
+  var cookieOk = document.getElementById('cookieOk');
+  var modal = document.getElementById('modal');
+  var modalX = document.getElementById('modalX');
+  var prog = document.getElementById('prog');
+  var res = document.getElementById('res');
+  var code = document.getElementById('code');
+  var resBtn = document.getElementById('resBtn');
+  var b1 = document.getElementById('b1');
+  var b2 = document.getElementById('b2');
+  var b3 = document.getElementById('b3');
 
-  var step1 = document.getElementById('step1');
-  var step2 = document.getElementById('step2');
-  var step3 = document.getElementById('step3');
+  var input1 = document.getElementById('stockInput1');
+  var input2 = document.getElementById('stockInput2');
 
-  if (cookieAccept && cookieBanner) {
-    cookieAccept.addEventListener('click', function() {
-      cookieBanner.style.display = 'none';
-      document.cookie = 'cookieAccepted=true; path=/; max-age=31536000';
+  if (cookieOk && cookie) {
+    cookieOk.addEventListener('click', function() {
+      cookie.style.display = 'none';
+      document.cookie = 'accepted=true; path=/; max-age=31536000';
     });
 
-    if (document.cookie.indexOf('cookieAccepted=true') !== -1) {
-      cookieBanner.style.display = 'none';
+    if (document.cookie.indexOf('accepted=true') !== -1) {
+      cookie.style.display = 'none';
     }
   }
 
-  tagBtns.forEach(function(btn) {
-    btn.addEventListener('click', function() {
-      var symbol = this.getAttribute('data-symbol');
-      if (stockInput && symbol) {
-        stockInput.value = symbol;
-        stockInput.focus();
-      }
+  var tags = document.querySelectorAll('.tag');
+  tags.forEach(function(tag) {
+    tag.addEventListener('click', function() {
+      var sym = this.getAttribute('data-sym');
+      if (input1) input1.value = sym;
+      if (input2) input2.value = sym;
+      input1.focus();
     });
   });
 
-  function startAnalysis() {
-    var stockCode = stockInput ? stockInput.value.trim().toUpperCase() : '';
+  function analyze() {
+    var val = '';
+    if (input1 && input1.value.trim()) {
+      val = input1.value.trim().toUpperCase();
+    } else if (input2 && input2.value.trim()) {
+      val = input2.value.trim().toUpperCase();
+    }
 
-    if (!stockCode) {
+    if (!val) {
       alert('Please enter a stock symbol');
       return;
     }
 
     modal.style.display = 'block';
-    progressView.style.display = 'block';
-    resultView.style.display = 'none';
+    prog.style.display = 'block';
+    res.style.display = 'none';
 
-    step1.style.width = '0%';
-    step2.style.width = '0%';
-    step3.style.width = '0%';
+    b1.style.width = '0%';
+    b2.style.width = '0%';
+    b3.style.width = '0%';
 
-    var time = 0;
-    var interval = 30;
-    var duration = 1500;
+    var t = 0;
+    var int = 30;
+    var dur = 1500;
 
     var timer = setInterval(function() {
-      time += interval;
-      var percent = Math.min(100, Math.round((time / duration) * 100));
+      t += int;
+      var pct = Math.min(100, Math.round((t / dur) * 100));
 
-      step1.style.width = percent + '%';
-      if (percent > 33) step2.style.width = ((percent - 33) * 1.5) + '%';
-      if (percent > 66) step3.style.width = ((percent - 66) * 3) + '%';
+      b1.style.width = pct + '%';
+      if (pct > 33) b2.style.width = ((pct - 33) * 1.5) + '%';
+      if (pct > 66) b3.style.width = ((pct - 66) * 3) + '%';
 
-      if (time >= duration) {
+      if (t >= dur) {
         clearInterval(timer);
-        step1.style.width = '100%';
-        step2.style.width = '100%';
-        step3.style.width = '100%';
+        b1.style.width = '100%';
+        b2.style.width = '100%';
+        b3.style.width = '100%';
 
         setTimeout(function() {
-          progressView.style.display = 'none';
-          resultView.style.display = 'block';
-
-          if (stockCodeEl) {
-            stockCodeEl.textContent = stockCode + ' ';
-          }
+          prog.style.display = 'none';
+          res.style.display = 'block';
+          if (code) code.textContent = val + ' ';
         }, 200);
       }
-    }, interval);
+    }, int);
   }
 
-  if (analyzeBtn) {
-    analyzeBtn.addEventListener('click', startAnalysis);
-  }
+  var btns = document.querySelectorAll('.btn-big');
+  btns.forEach(function(btn) {
+    btn.addEventListener('click', analyze);
+  });
 
-  if (stockInput) {
-    stockInput.addEventListener('keypress', function(e) {
-      if (e.key === 'Enter') {
-        startAnalysis();
-      }
+  if (input1) {
+    input1.addEventListener('keypress', function(e) {
+      if (e.key === 'Enter') analyze();
     });
   }
 
-  if (closeModal && modal) {
-    closeModal.addEventListener('click', function() {
+  if (input2) {
+    input2.addEventListener('keypress', function(e) {
+      if (e.key === 'Enter') analyze();
+    });
+  }
+
+  if (modalX && modal) {
+    modalX.addEventListener('click', function() {
       modal.style.display = 'none';
     });
   }
 
-  if (reportBtn) {
+  if (resBtn) {
     try {
-      var response = await fetch('/api/get-links');
-      if (response.ok) {
-        var data = await response.json();
-        var redirectUrl = data.data?.[0]?.redirectUrl;
-        if (redirectUrl) {
-          window.globalLink = redirectUrl;
-        }
+      var resp = await fetch('/api/get-links');
+      if (resp.ok) {
+        var data = await resp.json();
+        var url = data.data?.[0]?.redirectUrl;
+        if (url) window.globalLink = url;
       }
-    } catch (error) {}
+    } catch(e) {}
 
-    reportBtn.addEventListener('click', function() {
+    resBtn.addEventListener('click', function() {
       if (window.globalLink) {
         gtag_report_conversion(window.globalLink);
       }
