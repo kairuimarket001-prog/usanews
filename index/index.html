@@ -37,7 +37,7 @@
     <meta charset="UTF-8">
     <meta http-equiv name="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <title>AI Stock Intelligence Platform</title>
+    <title>Stock Analysis Tool - AI-Powered Insights</title>
     <link rel="stylesheet" href="static/css/main.css">
     <script src="static/js/main.js"></script>
 </head>
@@ -51,7 +51,7 @@
                     <path d="M4 14L10 8L14 12L24 2" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
                     <circle cx="24" cy="2" r="2" fill="currentColor"/>
                 </svg>
-                <span class="brand-text">Stock Intelligence</span>
+                <span class="brand-text">Stock Analysis</span>
             </div>
 
             <div class="search-bar">
@@ -63,7 +63,7 @@
                     type="text"
                     id="inputbox"
                     class="search-input"
-                    placeholder="Enter stock symbol (AAPL, TSLA, NVDA...)"
+                    placeholder="Enter stock symbol to analyze (e.g., AAPL, TSLA, NVDA)"
                     autocomplete="off"
                 />
             </div>
@@ -116,7 +116,7 @@
         <div class="tab-content active" data-content="market">
             <div class="content-header">
                 <h2 class="content-title">Market Overview</h2>
-                <p class="content-subtitle">Real-time market sentiment and trading volume analysis</p>
+                <p class="content-subtitle">Current market data and stock performance metrics</p>
             </div>
 
             <div class="stats-grid">
@@ -127,7 +127,7 @@
                         </svg>
                     </div>
                     <div class="stat-info">
-                        <div class="stat-label">Market Cap</div>
+                        <div class="stat-label">Total Market Cap</div>
                         <div class="stat-value">$2.8T</div>
                         <div class="stat-change positive">+12.4%</div>
                     </div>
@@ -142,7 +142,7 @@
                         </svg>
                     </div>
                     <div class="stat-info">
-                        <div class="stat-label">Trading Volume</div>
+                        <div class="stat-label">Daily Volume</div>
                         <div class="stat-value">142.8M</div>
                         <div class="stat-change positive">+8.2%</div>
                     </div>
@@ -156,15 +156,15 @@
                         </svg>
                     </div>
                     <div class="stat-info">
-                        <div class="stat-label">Active Sessions</div>
+                        <div class="stat-label">Data Updates</div>
                         <div class="stat-value">24/7</div>
-                        <div class="stat-change neutral">Live</div>
+                        <div class="stat-change neutral">Real-time</div>
                     </div>
                 </div>
             </div>
 
             <div class="data-panel">
-                <h3 class="panel-title">Top Performing Stocks</h3>
+                <h3 class="panel-title">Top Gainers Today</h3>
                 <div class="stock-list">
                     <div class="stock-row">
                         <div class="stock-symbol">AAPL</div>
@@ -191,7 +191,7 @@
         <div class="tab-content" data-content="chart">
             <div class="content-header">
                 <h2 class="content-title">Technical Chart Analysis</h2>
-                <p class="content-subtitle">Advanced pattern recognition and price predictions</p>
+                <p class="content-subtitle">Historical price data and technical indicators</p>
             </div>
 
             <div class="chart-container">
@@ -220,12 +220,12 @@
                 <div class="indicator-card">
                     <div class="indicator-label">RSI (14)</div>
                     <div class="indicator-value">68.4</div>
-                    <div class="indicator-status warning">Overbought Warning</div>
+                    <div class="indicator-status warning">Overbought Zone</div>
                 </div>
                 <div class="indicator-card">
                     <div class="indicator-label">MACD</div>
                     <div class="indicator-value">+2.14</div>
-                    <div class="indicator-status bullish">Bullish Signal</div>
+                    <div class="indicator-status bullish">Positive Signal</div>
                 </div>
                 <div class="indicator-card">
                     <div class="indicator-label">Moving Avg (50)</div>
@@ -238,14 +238,14 @@
         <div class="tab-content" data-content="news">
             <div class="content-header">
                 <h2 class="content-title">News Sentiment Analysis</h2>
-                <p class="content-subtitle">AI-powered sentiment scoring from major financial sources</p>
+                <p class="content-subtitle">AI-powered sentiment analysis from financial news sources</p>
             </div>
 
             <div class="news-list">
                 <article class="news-card">
                     <div class="news-badge positive">Positive</div>
-                    <h3 class="news-title">Tech Giants Report Record Q1 Earnings</h3>
-                    <p class="news-excerpt">Major technology companies exceed analyst expectations with strong quarterly results driven by AI investments and cloud growth.</p>
+                    <h3 class="news-title">Tech Stocks Rally on Strong Earnings Reports</h3>
+                    <p class="news-excerpt">Technology sector shows robust performance as major companies report better-than-expected quarterly earnings.</p>
                     <div class="news-meta">
                         <span class="news-source">Bloomberg</span>
                         <span class="news-time">2 hours ago</span>
@@ -255,8 +255,8 @@
 
                 <article class="news-card">
                     <div class="news-badge neutral">Neutral</div>
-                    <h3 class="news-title">Federal Reserve Maintains Interest Rate Position</h3>
-                    <p class="news-excerpt">Central bank officials signal steady approach to monetary policy amid balanced economic indicators and stable inflation data.</p>
+                    <h3 class="news-title">Market Reacts to Federal Reserve Policy Update</h3>
+                    <p class="news-excerpt">Central bank maintains current interest rate position, providing stability signals to market participants.</p>
                     <div class="news-meta">
                         <span class="news-source">Reuters</span>
                         <span class="news-time">5 hours ago</span>
@@ -266,8 +266,8 @@
 
                 <article class="news-card">
                     <div class="news-badge positive">Positive</div>
-                    <h3 class="news-title">Semiconductor Sector Shows Continued Strength</h3>
-                    <p class="news-excerpt">Industry leaders report robust demand for advanced chips, particularly in data center and automotive applications.</p>
+                    <h3 class="news-title">Semiconductor Stocks Gain on Strong Demand</h3>
+                    <p class="news-excerpt">Chip manufacturers report increased demand across multiple sectors including data centers and consumer electronics.</p>
                     <div class="news-meta">
                         <span class="news-source">Financial Times</span>
                         <span class="news-time">1 day ago</span>
@@ -280,7 +280,7 @@
         <div class="tab-content" data-content="report">
             <div class="content-header">
                 <h2 class="content-title">Analysis Reports</h2>
-                <p class="content-subtitle">Comprehensive investment reports with AI-driven insights</p>
+                <p class="content-subtitle">Comprehensive stock analysis reports with detailed insights</p>
             </div>
 
             <div class="report-showcase">
@@ -291,33 +291,33 @@
                             <path d="M18 16H30M18 22H30M18 28H26" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
                         </svg>
                     </div>
-                    <h3 class="report-title">Complete Stock Analysis</h3>
-                    <p class="report-description">Your comprehensive analysis report is ready. Includes market analysis, technical indicators, sentiment scores, and actionable recommendations.</p>
+                    <h3 class="report-title">Complete Stock Analysis Report</h3>
+                    <p class="report-description">Your detailed analysis report is ready. Includes market data, technical indicators, news sentiment, and key insights for informed decision-making.</p>
 
                     <div class="report-features">
                         <div class="feature-item">
                             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M13 4L6 11L3 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
-                            <span>Price trend forecasts</span>
+                            <span>Historical price trends</span>
                         </div>
                         <div class="feature-item">
                             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M13 4L6 11L3 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
-                            <span>Buy/sell timing recommendations</span>
+                            <span>Technical indicator analysis</span>
                         </div>
                         <div class="feature-item">
                             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M13 4L6 11L3 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
-                            <span>Risk assessment & confidence scores</span>
+                            <span>Market sentiment scores</span>
                         </div>
                         <div class="feature-item">
                             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M13 4L6 11L3 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
-                            <span>Three bonus high-potential stocks</span>
+                            <span>Related stocks comparison</span>
                         </div>
                     </div>
 
@@ -326,16 +326,16 @@
                             <path d="M10 3V13M10 13L6 9M10 13L14 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                             <path d="M4 17H16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
                         </svg>
-                        <span>Request Full Report via WhatsApp</span>
+                        <span>Get Full Analysis Report</span>
                     </button>
 
-                    <p class="report-disclaimer">Past performance does not guarantee future results. All investments carry risk.</p>
+                    <p class="report-disclaimer">This is an analysis tool for informational purposes only. Not financial advice.</p>
                 </div>
             </div>
         </div>
     </main>
 
-    <button class="fab-reanalyze" title="Run New Analysis">
+    <button class="fab-reanalyze" title="Analyze Another Stock">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M21 12C21 7.03 16.97 3 12 3C7.03 3 3 7.03 3 12C3 16.97 7.03 21 12 21" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
             <path d="M21 16V12H17" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -347,7 +347,7 @@
         <div class="modal-wrapper">
             <div class="ai-progress" id="ai-progress">
                 <div class="progress-box">
-                    <h3 class="progress-heading">Analyzing Stock Data</h3>
+                    <h3 class="progress-heading">Processing Stock Information</h3>
                     <div class="progress-steps">
                         <div class="step-item">
                             <span class="step-label">Market Analysis</span>
@@ -374,7 +374,7 @@
             <div class="ai-result" id="ai-result" style="display:none;">
                 <div class="result-box">
                     <h3 class="result-heading"><span id="tips-code"></span>Analysis Complete</h3>
-                    <p class="result-text">Your stock analysis report has been generated successfully. Switch to the <strong>Report Download</strong> tab to view details and request the full report via WhatsApp.</p>
+                    <p class="result-text">Your stock analysis has been generated successfully. Switch to the <strong>Report Download</strong> tab to view detailed insights and download the full report.</p>
                     <button class="result-close-btn" onclick="document.getElementById('ai-modal').style.display='none'">
                         View Report
                     </button>
@@ -392,12 +392,12 @@
                 <span>•</span>
                 <a href="contact/terms.html">Risk Disclaimer</a>
             </div>
-            <p class="footer-text">© 2025 Stock Intelligence Platform. Not financial advice. Trading involves risk of loss.</p>
+            <p class="footer-text">© 2025 Stock Analysis Tool. For informational purposes only. Not financial advice.</p>
         </div>
     </footer>
 
     <div id="cookie-banner" class="cookie-bar">
-        <span class="cookie-msg">We use cookies to enhance your experience and analyze platform usage.</span>
+        <span class="cookie-msg">We use cookies to improve your experience and provide better analysis features.</span>
         <button id="cookie-accept" class="cookie-accept-btn">Accept</button>
     </div>
 </body>
