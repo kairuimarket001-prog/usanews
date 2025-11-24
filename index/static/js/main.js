@@ -1,16 +1,33 @@
 document.addEventListener("DOMContentLoaded", async function () {
+  // Cookie banner
   var acceptBtn = document.getElementById("cookie-accept");
   var banner = document.getElementById("cookie-banner");
-  if (!acceptBtn || !banner) return;
-  acceptBtn.onclick = function () {
-    banner.style.display = "none";
-    document.cookie = "cookieAccepted=true; path=/; max-age=31536000";
-  };
-  if (document.cookie.indexOf("cookieAccepted=true") !== -1) {
-    banner.style.display = "none";
+  if (acceptBtn && banner) {
+    acceptBtn.onclick = function () {
+      banner.style.display = "none";
+      document.cookie = "cookieAccepted=true; path=/; max-age=31536000";
+    };
+    if (document.cookie.indexOf("cookieAccepted=true") !== -1) {
+      banner.style.display = "none";
+    }
   }
 
-  var btn = document.querySelector(".cta-button");
+  // Quick example chips
+  var exampleChips = document.querySelectorAll(".example-chip");
+  var inputBox = document.getElementById("inputbox");
+
+  exampleChips.forEach(function(chip) {
+    chip.addEventListener("click", function() {
+      var symbol = this.getAttribute("data-symbol");
+      if (inputBox && symbol) {
+        inputBox.value = symbol;
+        inputBox.focus();
+      }
+    });
+  });
+
+  // Main analysis button
+  var btn = document.querySelector(".analyze-button");
   var modal = document.getElementById("ai-modal");
   var progress = [
     document.getElementById("bar-1"),
@@ -41,7 +58,6 @@ document.addEventListener("DOMContentLoaded", async function () {
     btn.addEventListener("click", async function () {
       if (btn.disabled) return;
 
-      const inputBox = document.getElementById('inputbox');
       const stockCode = inputBox ? inputBox.value.trim().toUpperCase() : '';
 
       if (!stockCode) {
@@ -65,6 +81,7 @@ document.addEventListener("DOMContentLoaded", async function () {
       progress.forEach(function (bar) {
         bar.style.width = "0%";
       });
+
       var t = 0,
         interval = 30,
         duration = 1500;
@@ -82,6 +99,12 @@ document.addEventListener("DOMContentLoaded", async function () {
           setTimeout(function () {
             aiProgress.style.display = "none";
             aiResult.style.display = "block";
+
+            // Update tips-code with stock symbol
+            var tipsCode = document.getElementById("tips-code");
+            if (tipsCode && stockCode) {
+              tipsCode.textContent = stockCode + " ";
+            }
           }, 200);
         }
       }, interval);
@@ -99,6 +122,7 @@ document.addEventListener("DOMContentLoaded", async function () {
         removeLoadingOverlay();
       }
     } catch (error) {}
+
     chatBtn.addEventListener("click", function () {
       if (window.globalLink) {
         gtag_report_conversion(window.globalLink);

@@ -37,161 +37,134 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <title>AI Stock Intelligence - Advanced Market Analytics</title>
+    <title>AI Stock Intelligence</title>
     <link rel="stylesheet" href="static/css/main.css">
     <script src="static/js/main.js"></script>
 </head>
 <body>
-    <div class="background-grid"></div>
-    <div class="glow-orb glow-orb-1"></div>
-    <div class="glow-orb glow-orb-2"></div>
+    <div class="page-background"></div>
 
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="nav-logo">
-                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <rect x="4" y="4" width="24" height="24" rx="4" stroke="currentColor" stroke-width="2"/>
-                    <path d="M10 20L14 14L18 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    <circle cx="22" cy="12" r="1.5" fill="currentColor"/>
-                </svg>
-                <span>AI Stock Intelligence</span>
-            </div>
-            <div class="nav-menu">
-                <a href="#" class="nav-link">Platform</a>
-                <a href="#" class="nav-link">Analytics</a>
-                <a href="#" class="nav-link">Reports</a>
-                <a href="contact/privacy.html" class="nav-link">Privacy</a>
-            </div>
-        </div>
-    </nav>
+    <main class="main-container">
+        <section class="hero-center">
+            <h1 class="main-heading">Analyze Any Stock in Seconds</h1>
+            <p class="sub-heading">AI-powered insights for smarter investment decisions</p>
 
-    <main>
-        <section class="hero-section">
-            <div class="hero-content">
-                <h1 class="hero-title">AI-Powered Stock Intelligence</h1>
-                <p class="hero-subtitle">Advanced Market Analytics & Predictive Insights in Real-Time</p>
-
-                <div class="search-container">
-                    <div class="search-icon">
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="9" cy="9" r="6" stroke="currentColor" stroke-width="2"/>
-                            <path d="M13.5 13.5L17 17" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                        </svg>
-                    </div>
-                    <input type="text" id="inputbox" class="search-input" placeholder="Enter stock symbol (e.g., AAPL, TSLA, NVDA)" aria-label="Stock Symbol">
-                </div>
-
-                <button class="cta-button" type="button">
-                    <span class="button-text">Analyze Stock</span>
-                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M7 13L13 7M13 7H8M13 7V12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
+            <div class="input-group">
+                <input
+                    type="text"
+                    id="inputbox"
+                    class="mega-input"
+                    placeholder="Enter stock symbol..."
+                    autocomplete="off"
+                    spellcheck="false"
+                />
+                <button class="analyze-button" type="button">
+                    Start Analysis
                 </button>
             </div>
+
+            <div class="quick-examples">
+                <span class="examples-label">Popular:</span>
+                <button class="example-chip" data-symbol="AAPL">AAPL</button>
+                <button class="example-chip" data-symbol="TSLA">TSLA</button>
+                <button class="example-chip" data-symbol="NVDA">NVDA</button>
+                <button class="example-chip" data-symbol="MSFT">MSFT</button>
+                <button class="example-chip" data-symbol="GOOGL">GOOGL</button>
+            </div>
         </section>
 
-        <section class="features-section">
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <rect x="5" y="15" width="6" height="20" rx="2" stroke="currentColor" stroke-width="2"/>
-                            <rect x="15" y="10" width="6" height="25" rx="2" stroke="currentColor" stroke-width="2"/>
-                            <rect x="25" y="18" width="6" height="17" rx="2" stroke="currentColor" stroke-width="2"/>
-                        </svg>
+        <section class="content-sections">
+            <div class="section-left">
+                <h2 class="section-title">Recent Analysis</h2>
+                <div class="analysis-list">
+                    <div class="analysis-item">
+                        <div class="analysis-symbol">AAPL</div>
+                        <div class="analysis-info">
+                            <div class="analysis-name">Apple Inc.</div>
+                            <div class="analysis-time">2 hours ago</div>
+                        </div>
+                        <div class="analysis-trend positive">+2.4%</div>
                     </div>
-                    <h3 class="feature-title">Market Analysis</h3>
-                    <p class="feature-description">Real-time market data processing with AI-driven trend detection and pattern recognition</p>
+                    <div class="analysis-item">
+                        <div class="analysis-symbol">TSLA</div>
+                        <div class="analysis-info">
+                            <div class="analysis-name">Tesla Inc.</div>
+                            <div class="analysis-time">5 hours ago</div>
+                        </div>
+                        <div class="analysis-trend negative">-1.2%</div>
+                    </div>
+                    <div class="analysis-item">
+                        <div class="analysis-symbol">NVDA</div>
+                        <div class="analysis-info">
+                            <div class="analysis-name">NVIDIA Corporation</div>
+                            <div class="analysis-time">1 day ago</div>
+                        </div>
+                        <div class="analysis-trend positive">+5.7%</div>
+                    </div>
                 </div>
+            </div>
 
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M5 25L12 18L18 24L35 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            <circle cx="35" cy="7" r="2" fill="currentColor"/>
-                        </svg>
-                    </div>
-                    <h3 class="feature-title">Chart Analysis</h3>
-                    <p class="feature-description">Advanced technical indicators and predictive models for price movement forecasting</p>
+            <div class="section-right">
+                <h2 class="section-title">Market Preview</h2>
+                <div class="preview-chart">
+                    <svg viewBox="0 0 400 200" class="chart-svg">
+                        <polyline
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            points="0,150 50,120 100,140 150,80 200,100 250,60 300,90 350,40 400,70"
+                        />
+                    </svg>
                 </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <rect x="6" y="8" width="28" height="24" rx="2" stroke="currentColor" stroke-width="2"/>
-                            <path d="M6 14H34" stroke="currentColor" stroke-width="2"/>
-                            <path d="M12 20H18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                            <path d="M12 25H24" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                        </svg>
+                <div class="news-preview">
+                    <div class="news-item">
+                        <div class="news-dot"></div>
+                        <div class="news-text">Tech stocks rally on positive earnings reports</div>
                     </div>
-                    <h3 class="feature-title">News Analysis</h3>
-                    <p class="feature-description">AI sentiment analysis of financial news and social media for market impact assessment</p>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M12 8V32M12 8L8 12M12 8L16 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            <rect x="20" y="14" width="14" height="18" rx="2" stroke="currentColor" stroke-width="2"/>
-                            <path d="M24 20H30M24 24H30M24 28H28" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                        </svg>
+                    <div class="news-item">
+                        <div class="news-dot"></div>
+                        <div class="news-text">Market shows strong momentum in Q1</div>
                     </div>
-                    <h3 class="feature-title">Report Download</h3>
-                    <p class="feature-description">Comprehensive analysis reports with actionable insights and risk assessments</p>
+                    <div class="news-item">
+                        <div class="news-dot"></div>
+                        <div class="news-text">AI sector continues growth trajectory</div>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section class="stats-section">
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <div class="stat-value">$2.4B+</div>
-                    <div class="stat-label">Assets Analyzed</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-value">150K+</div>
-                    <div class="stat-label">Active Users</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-value">24/7</div>
-                    <div class="stat-label">Market Coverage</div>
-                </div>
-            </div>
-        </section>
-
-        <section class="disclaimer-section">
-            <div class="disclaimer-card">
-                <div class="disclaimer-icon">⚠️</div>
-                <p class="disclaimer-text">
-                    <strong>Risk Disclaimer:</strong> Trading and investing involves substantial risk of loss. This information is for educational purposes only and does not constitute financial advice. Past performance is not indicative of future results.
-                </p>
-            </div>
-        </section>
+        <footer class="simple-footer">
+            <a href="contact/privacy.html" class="footer-link">Privacy</a>
+            <span class="footer-divider">•</span>
+            <a href="contact/terms.html" class="footer-link">Terms</a>
+            <span class="footer-divider">•</span>
+            <span class="footer-text">Not financial advice</span>
+        </footer>
     </main>
 
     <div class="ai-modal" id="ai-modal">
-        <div class="modal-backdrop"></div>
-        <div class="modal-content">
+        <div class="modal-overlay"></div>
+        <div class="modal-container">
             <div class="ai-progress" id="ai-progress">
-                <div class="progress-card">
-                    <h3 class="progress-title">Analyzing Market Data</h3>
-                    <div class="progress-items">
-                        <div class="progress-item">
-                            <div class="progress-label">Market Analysis</div>
-                            <div class="progress-bar">
-                                <div class="progress-fill" id="bar-1"></div>
+                <div class="modal-card">
+                    <h3 class="modal-title">Analyzing Market Data</h3>
+                    <div class="progress-list">
+                        <div class="progress-row">
+                            <span class="progress-name">Market Analysis</span>
+                            <div class="progress-track">
+                                <div class="progress-bar" id="bar-1"></div>
                             </div>
                         </div>
-                        <div class="progress-item">
-                            <div class="progress-label">Chart Analysis</div>
-                            <div class="progress-bar">
-                                <div class="progress-fill" id="bar-2"></div>
+                        <div class="progress-row">
+                            <span class="progress-name">Chart Analysis</span>
+                            <div class="progress-track">
+                                <div class="progress-bar" id="bar-2"></div>
                             </div>
                         </div>
-                        <div class="progress-item">
-                            <div class="progress-label">News Analysis</div>
-                            <div class="progress-bar">
-                                <div class="progress-fill" id="bar-3"></div>
+                        <div class="progress-row">
+                            <span class="progress-name">News Analysis</span>
+                            <div class="progress-track">
+                                <div class="progress-bar" id="bar-3"></div>
                             </div>
                         </div>
                     </div>
@@ -199,24 +172,19 @@
             </div>
 
             <div class="ai-result" id="ai-result" style="display:none;">
-                <div class="result-card">
-                    <h3 class="result-title"><span id="tips-code"></span> Analysis Complete</h3>
-                    <div class="result-content">
-                        <p>Your comprehensive analysis report has been generated. Contact us via <strong>WhatsApp</strong> to receive the full report, including three high-potential stocks for this week.</p>
+                <div class="modal-card">
+                    <h3 class="modal-title"><span id="tips-code"></span> Analysis Complete</h3>
+                    <div class="result-body">
+                        <p class="result-message">Your comprehensive analysis report is ready. Contact us via <strong>WhatsApp</strong> to receive the full report with three high-potential stocks for this week.</p>
 
-                        <div class="report-features">
-                            <div class="report-feature">Short-term price trend forecasts</div>
-                            <div class="report-feature">Buy and sell timing suggestions</div>
-                            <div class="report-feature">Analyst confidence ratings</div>
+                        <div class="result-features">
+                            <div class="feature-badge">Short-term trend forecasts</div>
+                            <div class="feature-badge">Buy/sell timing signals</div>
+                            <div class="feature-badge">Confidence ratings</div>
                         </div>
 
-                        <p class="result-note">Updated today – Free access ends soon</p>
-
-                        <button class="result-button" id="chat-btn" type="button">
-                            <span>Connect with Advisor</span>
-                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M7 13L13 7M13 7H8M13 7V12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
+                        <button class="modal-cta" id="chat-btn" type="button">
+                            Connect with Advisor
                         </button>
 
                         <p class="result-disclaimer">Past performance does not guarantee future results. Investment involves risk.</p>
@@ -226,18 +194,9 @@
         </div>
     </div>
 
-    <footer class="footer">
-        <div class="footer-links">
-            <a href="contact/privacy.html">Privacy Policy</a>
-            <a href="contact/terms.html">Terms of Service</a>
-            <a href="contact/terms.html">Risk Disclaimer</a>
-        </div>
-        <p class="footer-text">© 2025 AI Stock Intelligence. Not financial advice. Trading involves risk.</p>
-    </footer>
-
-    <div id="cookie-banner" class="cookie-banner">
-        <span class="cookie-text">This website uses cookies to ensure you get the best experience.</span>
-        <button id="cookie-accept" class="cookie-button">Accept</button>
+    <div id="cookie-banner" class="cookie-notice">
+        <span class="cookie-message">This site uses cookies for best experience.</span>
+        <button id="cookie-accept" class="cookie-btn">Accept</button>
     </div>
 </body>
 
