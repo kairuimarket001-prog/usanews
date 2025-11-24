@@ -12,35 +12,22 @@ document.addEventListener("DOMContentLoaded", async function () {
     }
   }
 
-  // Tab navigation
-  var tabItems = document.querySelectorAll(".tab-item");
-  var tabContents = document.querySelectorAll(".tab-content");
+  // Quick pick chips
+  var pickChips = document.querySelectorAll(".pick-chip");
+  var inputBox = document.getElementById("inputbox");
 
-  tabItems.forEach(function(tab) {
-    tab.addEventListener("click", function() {
-      var targetTab = this.getAttribute("data-tab");
-
-      // Remove active class from all tabs and contents
-      tabItems.forEach(function(t) {
-        t.classList.remove("active");
-      });
-      tabContents.forEach(function(c) {
-        c.classList.remove("active");
-      });
-
-      // Add active class to clicked tab and corresponding content
-      this.classList.add("active");
-      var targetContent = document.querySelector('[data-content="' + targetTab + '"]');
-      if (targetContent) {
-        targetContent.classList.add("active");
+  pickChips.forEach(function(chip) {
+    chip.addEventListener("click", function() {
+      var symbol = this.getAttribute("data-symbol");
+      if (inputBox && symbol) {
+        inputBox.value = symbol;
+        inputBox.focus();
       }
     });
   });
 
-  // Analyze button and FAB
-  var analyzeBtn = document.querySelector(".analyze-btn");
-  var fabBtn = document.querySelector(".fab-reanalyze");
-  var inputBox = document.getElementById("inputbox");
+  // Analyze button
+  var heroButton = document.querySelector(".hero-button");
   var modal = document.getElementById("ai-modal");
   var progress = [
     document.getElementById("bar-1"),
@@ -89,30 +76,21 @@ document.addEventListener("DOMContentLoaded", async function () {
           if (tipsCode && stockCode) {
             tipsCode.textContent = stockCode + " ";
           }
-
-          // Auto switch to report tab after analysis
-          setTimeout(function() {
-            var reportTab = document.querySelector('[data-tab="report"]');
-            if (reportTab) {
-              reportTab.click();
-            }
-          }, 100);
         }, 200);
       }
     }, interval);
   }
 
-  if (analyzeBtn) {
-    analyzeBtn.addEventListener("click", runAnalysis);
+  if (heroButton) {
+    heroButton.addEventListener("click", runAnalysis);
   }
 
-  if (fabBtn) {
-    fabBtn.addEventListener("click", function() {
-      if (inputBox) {
-        inputBox.focus();
-        inputBox.select();
+  // Enter key support
+  if (inputBox) {
+    inputBox.addEventListener("keypress", function(e) {
+      if (e.key === "Enter") {
+        runAnalysis();
       }
-      window.scrollTo({ top: 0, behavior: 'smooth' });
     });
   }
 
