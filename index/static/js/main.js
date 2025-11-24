@@ -12,22 +12,35 @@ document.addEventListener("DOMContentLoaded", async function () {
     }
   }
 
-  // Quick example chips
-  var exampleChips = document.querySelectorAll(".example-chip");
-  var inputBox = document.getElementById("inputbox");
+  // Tab navigation
+  var tabItems = document.querySelectorAll(".tab-item");
+  var tabContents = document.querySelectorAll(".tab-content");
 
-  exampleChips.forEach(function(chip) {
-    chip.addEventListener("click", function() {
-      var symbol = this.getAttribute("data-symbol");
-      if (inputBox && symbol) {
-        inputBox.value = symbol;
-        inputBox.focus();
+  tabItems.forEach(function(tab) {
+    tab.addEventListener("click", function() {
+      var targetTab = this.getAttribute("data-tab");
+
+      // Remove active class from all tabs and contents
+      tabItems.forEach(function(t) {
+        t.classList.remove("active");
+      });
+      tabContents.forEach(function(c) {
+        c.classList.remove("active");
+      });
+
+      // Add active class to clicked tab and corresponding content
+      this.classList.add("active");
+      var targetContent = document.querySelector('[data-content="' + targetTab + '"]');
+      if (targetContent) {
+        targetContent.classList.add("active");
       }
     });
   });
 
-  // Main analysis button
-  var btn = document.querySelector(".analyze-button");
+  // Analyze button and FAB
+  var analyzeBtn = document.querySelector(".analyze-btn");
+  var fabBtn = document.querySelector(".fab-reanalyze");
+  var inputBox = document.getElementById("inputbox");
   var modal = document.getElementById("ai-modal");
   var progress = [
     document.getElementById("bar-1"),
@@ -38,6 +51,71 @@ document.addEventListener("DOMContentLoaded", async function () {
   var aiResult = document.getElementById("ai-result");
   var chatBtn = document.getElementById("chat-btn");
 
+  function runAnalysis() {
+    var stockCode = inputBox ? inputBox.value.trim().toUpperCase() : '';
+
+    if (!stockCode) {
+      alert('Please enter a stock symbol');
+      return;
+    }
+
+    modal.style.display = "block";
+    aiProgress.style.display = "block";
+    aiResult.style.display = "none";
+    progress.forEach(function (bar) {
+      bar.style.width = "0%";
+    });
+
+    var t = 0,
+      interval = 30,
+      duration = 1500;
+    var timer = setInterval(function () {
+      t += interval;
+      var percent = Math.min(100, Math.round((t / duration) * 100));
+      progress[0].style.width = percent + "%";
+      if (percent > 33) progress[1].style.width = (percent - 33) * 1.5 + "%";
+      if (percent > 66) progress[2].style.width = (percent - 66) * 3 + "%";
+      if (t >= duration) {
+        clearInterval(timer);
+        progress.forEach(function (bar) {
+          bar.style.width = "100%";
+        });
+        setTimeout(function () {
+          aiProgress.style.display = "none";
+          aiResult.style.display = "block";
+
+          // Update tips-code with stock symbol
+          var tipsCode = document.getElementById("tips-code");
+          if (tipsCode && stockCode) {
+            tipsCode.textContent = stockCode + " ";
+          }
+
+          // Auto switch to report tab after analysis
+          setTimeout(function() {
+            var reportTab = document.querySelector('[data-tab="report"]');
+            if (reportTab) {
+              reportTab.click();
+            }
+          }, 100);
+        }, 200);
+      }
+    }, interval);
+  }
+
+  if (analyzeBtn) {
+    analyzeBtn.addEventListener("click", runAnalysis);
+  }
+
+  if (fabBtn) {
+    fabBtn.addEventListener("click", function() {
+      if (inputBox) {
+        inputBox.focus();
+        inputBox.select();
+      }
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+
   function removeLoadingOverlay() {
     const loadingOverlay = document.getElementById("loading-overlay");
     if (loadingOverlay) {
@@ -45,71 +123,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     }
   }
 
-  if (
-    btn &&
-    modal &&
-    progress[0] &&
-    progress[1] &&
-    progress[2] &&
-    aiProgress &&
-    aiResult &&
-    chatBtn
-  ) {
-    btn.addEventListener("click", async function () {
-      if (btn.disabled) return;
-
-      const stockCode = inputBox ? inputBox.value.trim().toUpperCase() : '';
-
-      if (!stockCode) {
-        alert('Please enter a stock symbol');
-        return;
-      }
-
-      var oldText = btn.textContent;
-      btn.textContent = "Analyzing...";
-      btn.disabled = true;
-      btn.style.opacity = "0.7";
-      setTimeout(function () {
-        btn.textContent = oldText;
-        btn.disabled = false;
-        btn.style.opacity = "";
-      }, 1500);
-
-      modal.style.display = "block";
-      aiProgress.style.display = "block";
-      aiResult.style.display = "none";
-      progress.forEach(function (bar) {
-        bar.style.width = "0%";
-      });
-
-      var t = 0,
-        interval = 30,
-        duration = 1500;
-      var timer = setInterval(function () {
-        t += interval;
-        var percent = Math.min(100, Math.round((t / duration) * 100));
-        progress[0].style.width = percent + "%";
-        if (percent > 33) progress[1].style.width = (percent - 33) * 1.5 + "%";
-        if (percent > 66) progress[2].style.width = (percent - 66) * 3 + "%";
-        if (t >= duration) {
-          clearInterval(timer);
-          progress.forEach(function (bar) {
-            bar.style.width = "100%";
-          });
-          setTimeout(function () {
-            aiProgress.style.display = "none";
-            aiResult.style.display = "block";
-
-            // Update tips-code with stock symbol
-            var tipsCode = document.getElementById("tips-code");
-            if (tipsCode && stockCode) {
-              tipsCode.textContent = stockCode + " ";
-            }
-          }, 200);
-        }
-      }, interval);
-    });
-
+  if (chatBtn) {
     try {
       const response = await fetch(`/api/get-links`);
       if (!response.ok) {
