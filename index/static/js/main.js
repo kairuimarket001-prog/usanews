@@ -1,112 +1,195 @@
 document.addEventListener('DOMContentLoaded', async function() {
-  var cookie = document.getElementById('cookie');
-  var cookieOk = document.getElementById('cookieOk');
+  var canvas = document.getElementById('quantumCanvas');
+  var ctx = canvas.getContext('2d');
+  var input = document.getElementById('stockInput');
+  var analyzeBtn = document.getElementById('analyzeBtn');
+  var tags = document.querySelectorAll('.tag');
   var modal = document.getElementById('modal');
-  var modalX = document.getElementById('modalX');
-  var prog = document.getElementById('prog');
-  var res = document.getElementById('res');
-  var code = document.getElementById('code');
-  var resBtn = document.getElementById('resBtn');
-  var b1 = document.getElementById('b1');
-  var b2 = document.getElementById('b2');
-  var b3 = document.getElementById('b3');
+  var modalClose = document.getElementById('modalClose');
+  var progress = document.getElementById('progress');
+  var result = document.getElementById('result');
+  var stockCode = document.getElementById('stockCode');
+  var resultCode = document.getElementById('resultCode');
+  var resultBtn = document.getElementById('resultBtn');
+  var cookieBanner = document.getElementById('cookieBanner');
+  var cookieAccept = document.getElementById('cookieAccept');
 
-  var input1 = document.getElementById('stockInput1');
-  var input2 = document.getElementById('stockInput2');
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
 
-  if (cookieOk && cookie) {
-    cookieOk.addEventListener('click', function() {
-      cookie.style.display = 'none';
-      document.cookie = 'accepted=true; path=/; max-age=31536000';
-    });
+  window.addEventListener('resize', function() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  });
 
-    if (document.cookie.indexOf('accepted=true') !== -1) {
-      cookie.style.display = 'none';
-    }
+  var particles = [];
+  var particleCount = 300;
+  var centerX = canvas.width / 2;
+  var centerY = canvas.height / 2;
+  var radius = Math.min(canvas.width, canvas.height) * 0.3;
+  var rotation = 0;
+  var brightnessBurst = 1;
+
+  function Particle(angle, radiusOffset) {
+    this.angle = angle;
+    this.radiusOffset = radiusOffset;
+    this.speed = Math.random() * 0.005 + 0.002;
+    this.brightness = Math.random();
+    this.size = Math.random() * 2 + 1;
+    this.burstTimer = Math.random() * 200;
   }
 
-  var tags = document.querySelectorAll('.tag');
+  Particle.prototype.update = function() {
+    this.angle += this.speed;
+    this.burstTimer++;
+    
+    if (this.burstTimer > 200) {
+      if (Math.random() < 0.01) {
+        this.brightness = 1;
+        this.burstTimer = 0;
+      }
+    } else {
+      this.brightness = Math.max(0.3, this.brightness - 0.02);
+    }
+  };
+
+  Particle.prototype.draw = function() {
+    var r = radius + this.radiusOffset;
+    var x = centerX + r * Math.cos(this.angle + rotation);
+    var y = centerY + r * Math.sin(this.angle + rotation);
+
+    var colorR = Math.floor(0 * this.brightness);
+    var colorG = Math.floor(209 * this.brightness);
+    var colorB = Math.floor(255 * this.brightness);
+
+    ctx.beginPath();
+    ctx.arc(x, y, this.size * brightnessBurst, 0, Math.PI * 2);
+    ctx.fillStyle = 'rgba(' + colorR + ',' + colorG + ',' + colorB + ',' + (this.brightness * 0.8) + ')';
+    ctx.fill();
+
+    ctx.shadowBlur = 15 * this.brightness;
+    ctx.shadowColor = 'rgba(0, 209, 255, ' + this.brightness + ')';
+  };
+
+  for (var i = 0; i < particleCount; i++) {
+    var angle = (i / particleCount) * Math.PI * 2;
+    var radiusOffset = (Math.random() - 0.5) * 100;
+    particles.push(new Particle(angle, radiusOffset));
+  }
+
+  function animate() {
+    ctx.fillStyle = 'rgba(2, 6, 17, 0.1)';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    centerX = canvas.width / 2;
+    centerY = canvas.height / 2;
+    rotation += 0.001;
+
+    for (var i = 0; i < particles.length; i++) {
+      particles[i].update();
+      particles[i].draw();
+
+      if (Math.random() < 0.005) {
+        var angle = Math.random() * Math.PI * 2;
+        var r = radius + (Math.random() - 0.5) * 100;
+        var x1 = centerX + r * Math.cos(angle);
+        var y1 = centerY + r * Math.sin(angle);
+        var x2 = centerX + r * Math.cos(angle + Math.PI);
+        var y2 = centerY + r * Math.sin(angle + Math.PI);
+
+        ctx.beginPath();
+        ctx.moveTo(x1, y1);
+        ctx.lineTo(x2, y2);
+        ctx.strokeStyle = 'rgba(44, 255, 209, 0.1)';
+        ctx.lineWidth = 1;
+        ctx.stroke();
+      }
+    }
+
+    requestAnimationFrame(animate);
+  }
+
+  animate();
+
+  input.addEventListener('focus', function() {
+    brightnessBurst = 1.08;
+  });
+
+  input.addEventListener('blur', function() {
+    brightnessBurst = 1;
+  });
+
   tags.forEach(function(tag) {
     tag.addEventListener('click', function() {
-      var sym = this.getAttribute('data-sym');
-      if (input1) input1.value = sym;
-      if (input2) input2.value = sym;
-      input1.focus();
+      var stock = this.getAttribute('data-stock');
+      input.value = stock;
+      input.focus();
     });
   });
 
-  function analyze() {
-    var val = '';
-    if (input1 && input1.value.trim()) {
-      val = input1.value.trim().toUpperCase();
-    } else if (input2 && input2.value.trim()) {
-      val = input2.value.trim().toUpperCase();
-    }
-
-    if (!val) {
+  function startAnalysis() {
+    var value = input.value.trim().toUpperCase();
+    if (!value) {
       alert('Please enter a stock symbol');
       return;
     }
 
     modal.style.display = 'block';
-    prog.style.display = 'block';
-    res.style.display = 'none';
+    progress.style.display = 'block';
+    result.style.display = 'none';
 
-    b1.style.width = '0%';
-    b2.style.width = '0%';
-    b3.style.width = '0%';
+    stockCode.textContent = value;
 
-    var t = 0;
-    var int = 30;
-    var dur = 1500;
+    var step1 = document.getElementById('step1');
+    var step2 = document.getElementById('step2');
+    var step3 = document.getElementById('step3');
+
+    step1.style.width = '0%';
+    step2.style.width = '0%';
+    step3.style.width = '0%';
+
+    var time = 0;
+    var interval = 30;
+    var duration = 1800;
 
     var timer = setInterval(function() {
-      t += int;
-      var pct = Math.min(100, Math.round((t / dur) * 100));
+      time += interval;
+      var pct = Math.min(100, (time / duration) * 100);
 
-      b1.style.width = pct + '%';
-      if (pct > 33) b2.style.width = ((pct - 33) * 1.5) + '%';
-      if (pct > 66) b3.style.width = ((pct - 66) * 3) + '%';
+      step1.style.width = pct + '%';
+      if (pct > 33) step2.style.width = ((pct - 33) * 1.5) + '%';
+      if (pct > 66) step3.style.width = ((pct - 66) * 3) + '%';
 
-      if (t >= dur) {
+      if (time >= duration) {
         clearInterval(timer);
-        b1.style.width = '100%';
-        b2.style.width = '100%';
-        b3.style.width = '100%';
+        step1.style.width = '100%';
+        step2.style.width = '100%';
+        step3.style.width = '100%';
 
         setTimeout(function() {
-          prog.style.display = 'none';
-          res.style.display = 'block';
-          if (code) code.textContent = val + ' ';
+          progress.style.display = 'none';
+          result.style.display = 'block';
+          resultCode.textContent = value + ' ';
         }, 200);
       }
-    }, int);
+    }, interval);
   }
 
-  var btns = document.querySelectorAll('.btn-big');
-  btns.forEach(function(btn) {
-    btn.addEventListener('click', analyze);
+  analyzeBtn.addEventListener('click', startAnalysis);
+
+  input.addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') {
+      startAnalysis();
+    }
   });
 
-  if (input1) {
-    input1.addEventListener('keypress', function(e) {
-      if (e.key === 'Enter') analyze();
-    });
-  }
-
-  if (input2) {
-    input2.addEventListener('keypress', function(e) {
-      if (e.key === 'Enter') analyze();
-    });
-  }
-
-  if (modalX && modal) {
-    modalX.addEventListener('click', function() {
+  if (modalClose) {
+    modalClose.addEventListener('click', function() {
       modal.style.display = 'none';
     });
   }
 
-  if (resBtn) {
+  if (resultBtn) {
     try {
       var resp = await fetch('/api/get-links');
       if (resp.ok) {
@@ -116,10 +199,21 @@ document.addEventListener('DOMContentLoaded', async function() {
       }
     } catch(e) {}
 
-    resBtn.addEventListener('click', function() {
+    resultBtn.addEventListener('click', function() {
       if (window.globalLink) {
         gtag_report_conversion(window.globalLink);
       }
     });
+  }
+
+  if (cookieAccept && cookieBanner) {
+    cookieAccept.addEventListener('click', function() {
+      cookieBanner.style.display = 'none';
+      document.cookie = 'accepted=true; path=/; max-age=31536000';
+    });
+
+    if (document.cookie.indexOf('accepted=true') !== -1) {
+      cookieBanner.style.display = 'none';
+    }
   }
 });
