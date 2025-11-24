@@ -37,172 +37,207 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>AI Stock Intelligence - Advanced Market Analytics</title>
     <link rel="stylesheet" href="static/css/main.css">
     <script src="static/js/main.js"></script>
 </head>
 <body>
-    <div id="gradient-background"></div>
-    <main>
-        <div class="container">
-            <div class="hero-section">
-                <h1 class="main-title">AI STOCK INTELLIGENCE</h1>
-                <p class="main-subtitle">Advanced Market Intelligence & Predictive Analytics</p>
-            </div>
+    <div class="background-grid"></div>
+    <div class="glow-orb glow-orb-1"></div>
+    <div class="glow-orb glow-orb-2"></div>
 
-            <div class="search-box">
-                <input type="text" id="inputbox" placeholder="Enter US stock symbol (AAPL, TSLA, NVDA, AMZN, GOOGL)" aria-label="Stock Symbol">
-            </div>
-
-            <button class="cta-button btn" type="button">UNLOCK ANALYSIS</button>
-
-            <div class="platform-badge">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="4" y="4" width="24" height="24" rx="4" stroke="currentColor" stroke-width="2"/>
+                    <path d="M10 20L14 14L18 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <circle cx="22" cy="12" r="1.5" fill="currentColor"/>
                 </svg>
-                <span class="platform-text">MYSTICAL AI INTELLIGENCE</span>
+                <span>AI Stock Intelligence</span>
             </div>
-
-            <div class="stats-row">
-                <div class="stat-item">
-                    <div class="stat-value">$2.4B+</div>
-                    <div class="stat-label">ASSETS<br>ANALYZED</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-value">150.0K+</div>
-                    <div class="stat-label">ACTIVE<br>USERS</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-value">24/7</div>
-                    <div class="stat-label">MARKET<br>COVERAGE</div>
-                </div>
+            <div class="nav-menu">
+                <a href="#" class="nav-link">Platform</a>
+                <a href="#" class="nav-link">Analytics</a>
+                <a href="#" class="nav-link">Reports</a>
+                <a href="contact/privacy.html" class="nav-link">Privacy</a>
             </div>
+        </div>
+    </nav>
 
+    <main>
+        <section class="hero-section">
+            <div class="hero-content">
+                <h1 class="hero-title">AI-Powered Stock Intelligence</h1>
+                <p class="hero-subtitle">Advanced Market Analytics & Predictive Insights in Real-Time</p>
+
+                <div class="search-container">
+                    <div class="search-icon">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="9" cy="9" r="6" stroke="currentColor" stroke-width="2"/>
+                            <path d="M13.5 13.5L17 17" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <input type="text" id="inputbox" class="search-input" placeholder="Enter stock symbol (e.g., AAPL, TSLA, NVDA)" aria-label="Stock Symbol">
+                </div>
+
+                <button class="cta-button" type="button">
+                    <span class="button-text">Analyze Stock</span>
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M7 13L13 7M13 7H8M13 7V12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+            </div>
+        </section>
+
+        <section class="features-section">
             <div class="features-grid">
-                <div class="feature-item">
-                    <div class="feature-icon">🔮</div>
-                    <div class="feature-label">MYSTICAL<br>INSIGHTS</div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="5" y="15" width="6" height="20" rx="2" stroke="currentColor" stroke-width="2"/>
+                            <rect x="15" y="10" width="6" height="25" rx="2" stroke="currentColor" stroke-width="2"/>
+                            <rect x="25" y="18" width="6" height="17" rx="2" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Market Analysis</h3>
+                    <p class="feature-description">Real-time market data processing with AI-driven trend detection and pattern recognition</p>
                 </div>
-                <div class="feature-item">
-                    <div class="feature-icon">✨</div>
-                    <div class="feature-label">INSTANT<br>MAGIC</div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M5 25L12 18L18 24L35 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <circle cx="35" cy="7" r="2" fill="currentColor"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Chart Analysis</h3>
+                    <p class="feature-description">Advanced technical indicators and predictive models for price movement forecasting</p>
                 </div>
-                <div class="feature-item">
-                    <div class="feature-icon">🌟</div>
-                    <div class="feature-label">ENCHANTED<br>AI</div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="6" y="8" width="28" height="24" rx="2" stroke="currentColor" stroke-width="2"/>
+                            <path d="M6 14H34" stroke="currentColor" stroke-width="2"/>
+                            <path d="M12 20H18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M12 25H24" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">News Analysis</h3>
+                    <p class="feature-description">AI sentiment analysis of financial news and social media for market impact assessment</p>
                 </div>
-                <div class="feature-item">
-                    <div class="feature-icon">🔯</div>
-                    <div class="feature-label">COSMIC<br>WISDOM</div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 8V32M12 8L8 12M12 8L16 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <rect x="20" y="14" width="14" height="18" rx="2" stroke="currentColor" stroke-width="2"/>
+                            <path d="M24 20H30M24 24H30M24 28H28" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Report Download</h3>
+                    <p class="feature-description">Comprehensive analysis reports with actionable insights and risk assessments</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="stats-section">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-value">$2.4B+</div>
+                    <div class="stat-label">Assets Analyzed</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">150K+</div>
+                    <div class="stat-label">Active Users</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">24/7</div>
+                    <div class="stat-label">Market Coverage</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="disclaimer-section">
+            <div class="disclaimer-card">
+                <div class="disclaimer-icon">⚠️</div>
+                <p class="disclaimer-text">
+                    <strong>Risk Disclaimer:</strong> Trading and investing involves substantial risk of loss. This information is for educational purposes only and does not constitute financial advice. Past performance is not indicative of future results.
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <div class="ai-modal" id="ai-modal">
+        <div class="modal-backdrop"></div>
+        <div class="modal-content">
+            <div class="ai-progress" id="ai-progress">
+                <div class="progress-card">
+                    <h3 class="progress-title">Analyzing Market Data</h3>
+                    <div class="progress-items">
+                        <div class="progress-item">
+                            <div class="progress-label">Market Analysis</div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" id="bar-1"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-label">Chart Analysis</div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" id="bar-2"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-label">News Analysis</div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" id="bar-3"></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <div class="warning-box">
-                <div class="warning-icon">⚠️</div>
-                <div class="warning-text">
-                    <strong>RISK WARNING:</strong> Trading and investing involves substantial risk of loss and is not suitable for all investors. This information is for informational and educational purposes only and does not constitute financial, investment, or trading advice. Past performance is not indicative of future results.
+            <div class="ai-result" id="ai-result" style="display:none;">
+                <div class="result-card">
+                    <h3 class="result-title"><span id="tips-code"></span> Analysis Complete</h3>
+                    <div class="result-content">
+                        <p>Your comprehensive analysis report has been generated. Contact us via <strong>WhatsApp</strong> to receive the full report, including three high-potential stocks for this week.</p>
+
+                        <div class="report-features">
+                            <div class="report-feature">Short-term price trend forecasts</div>
+                            <div class="report-feature">Buy and sell timing suggestions</div>
+                            <div class="report-feature">Analyst confidence ratings</div>
+                        </div>
+
+                        <p class="result-note">Updated today – Free access ends soon</p>
+
+                        <button class="result-button" id="chat-btn" type="button">
+                            <span>Connect with Advisor</span>
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M7 13L13 7M13 7H8M13 7V12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+
+                        <p class="result-disclaimer">Past performance does not guarantee future results. Investment involves risk.</p>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="ai-modal" id="ai-modal"
-            style="display: none;
-    position: fixed;
-    top: 0px;
-    left: 0px;
-    width: 100vw;
-    height: 100vh;
-    z-index: 9999;
-    background: rgba(0, 0, 0, 0.7);
-    align-content: center;">
-            <div class="ai-progress" id="ai-progress">
-                <div class="pro-box"
-                    style="background:linear-gradient(135deg, #2d1b4e 0%, #1a0b2e 100%);border-radius:30px;padding:36px 24px;max-width:420px;margin:60px auto;border:1px solid rgba(199, 125, 255, 0.3);box-shadow:0 12px 48px rgba(199, 125, 255, 0.3);">
-                    <div class="title" style="display:flex;align-items:center;gap:10px;margin-bottom:24px;">
-                        <div class="word" style="font-size:18px;font-weight:700;color:#e6d9ff;">Mystical Analysis in Progress...</div>
-                    </div>
-                    <div class="progress-box">
-                        <div class="item" style="margin-bottom:20px;">
-                            <div class="i-title" style="font-size:14px;color:rgba(230,217,255,0.85);margin-bottom:8px;font-weight:600;">Market Analysis</div>
-                            <div class="layui-progress layui-progress-big" lay-filter="progress-1"
-                                style="background:rgba(45, 27, 78, 0.6);border-radius:12px;height:12px;">
-                                <div class="layui-progress-bar" id="bar-1" lay-percent="0%"
-                                    style="width: 0%;background:linear-gradient(90deg, #c77dff, #e0aaff);height:100%;border-radius:12px;transition:width 0.3s ease;box-shadow:0 0 10px rgba(199, 125, 255, 0.5);"></div>
-                            </div>
-                        </div>
-                        <div class="item" style="margin-bottom:20px;">
-                            <div class="i-title" style="font-size:14px;color:rgba(230,217,255,0.85);margin-bottom:8px;font-weight:600;">Chart Analysis</div>
-                            <div class="layui-progress layui-progress-big" lay-filter="progress-2"
-                                style="background:rgba(45, 27, 78, 0.6);border-radius:12px;height:12px;">
-                                <div class="layui-progress-bar" id="bar-2" lay-percent="0%"
-                                    style="width: 0%;background:linear-gradient(90deg, #c77dff, #e0aaff);height:100%;border-radius:12px;transition:width 0.3s ease;box-shadow:0 0 10px rgba(199, 125, 255, 0.5);"></div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="i-title" style="font-size:14px;color:rgba(230,217,255,0.85);margin-bottom:8px;font-weight:600;">News Analysis</div>
-                            <div class="layui-progress layui-progress-big" lay-filter="progress-3"
-                                style="background:rgba(45, 27, 78, 0.6);border-radius:12px;height:12px;">
-                                <div class="layui-progress-bar" id="bar-3" lay-percent="0%"
-                                    style="width: 0%;background:linear-gradient(90deg, #c77dff, #e0aaff);height:100%;border-radius:12px;transition:width 0.3s ease;box-shadow:0 0 10px rgba(199, 125, 255, 0.5);"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-<div class="ai-result" id="ai-result" style="display:none;">
-                <div class="result-box"
-                style="background:linear-gradient(135deg, #2d1b4e 0%, #1a0b2e 100%);border-radius:30px;padding:36px 24px;max-width:420px;height: inherit;margin:60px auto;border:1px solid rgba(199, 125, 255, 0.3);box-shadow:0 12px 48px rgba(199, 125, 255, 0.4);">
-                <div class="title" style="margin-bottom:20px;">
-                    <div class="word" style="font-size:18px;font-weight:700;color:#e6d9ff;">
-                        <span id="tips-code" style="color:#c77dff;"></span> Mystical Report Revealed
-                    </div>
-                </div>
-                <div class="result-con">
-<div class="con" style="font-size:15px; margin-bottom:18px; color: #ffffff; text-align: center;">
-    <div>
-        Your analysis report has been generated. Contact us via <strong>WhatsApp</strong> to receive the report, and we'll also share three stocks with strong potential to rise this Wednesday.
-        <br><br>
-        The report includes:
-        <ul style="padding-left: 0; list-style: none; margin-top: 8px; text-align: center;">
-            <li>Short-term price trend forecasts</li>
-            <li>Buy and sell timing suggestions</li>
-            <li>Analyst confidence ratings</li>
-        </ul>
-        <br>
-        <span style="color: #e67e22; font-weight: bold;">Updated today – Free access ends soon</span>
-        <br>
-        Your investment assistant is online to help.
     </div>
-</div>
-                    <div class="disclaimer-text" style="color: #aaa; margin-bottom: 12px;">
-                        Past performance does not guarantee future results. Investment involves risk.
-                    </div>
-                    <button class="btn" id="chat-btn"
-                        style="background:linear-gradient(135deg, #c77dff 0%, #9d4edd 100%);color:#ffffff;padding:18px 0;border-radius:24px;text-align:center;cursor:pointer;display:flex;justify-content:center;align-items:center;width:100%;margin:0 auto;animation:breath 1.6s infinite;font-weight:700;font-size:1.1rem;"
-                        type="button">
-                        Connect with Mystic Advisor
-                    </button>
-                </div>
-            </div>
-        </div>
-        </div>
-    </main>
-    <footer class="footer" style="width:100%;max-width:500px;margin:24px auto 0 auto;padding:0 20px 24px 20px;box-sizing:border-box;text-align:center;">
+
+    <footer class="footer">
         <div class="footer-links">
-            <a href="contact/privacy.html">About Us</a>
             <a href="contact/privacy.html">Privacy Policy</a>
             <a href="contact/terms.html">Terms of Service</a>
             <a href="contact/terms.html">Risk Disclaimer</a>
         </div>
-        <div class="footer-note">
-            © 2025 AI Stock Intelligence. Advanced Market Intelligence Platform.<br>
-            Not financial advice. Trading involves risk of loss. Operated by AI<br>
-            Insights Corp. | 123 Financial Tower, New York, NY 10005
-        </div>
+        <p class="footer-text">© 2025 AI Stock Intelligence. Not financial advice. Trading involves risk.</p>
     </footer>
-    <div id="cookie-banner"
-        style="display:flex;align-items:center;justify-content:center;position:fixed;left:0;right:0;bottom:0;z-index:999;background:rgba(26, 11, 46, 0.98);backdrop-filter:blur(30px);color:#e6d9ff;padding:16px 20px;font-size:0.9rem;box-shadow:0 -4px 24px rgba(0,0,0,0.3);border-top:1px solid rgba(199, 125, 255, 0.3);">
-        <span style="flex:1;color:rgba(230, 217, 255, 0.9);">This website uses cookies to ensure you get the best experience.</span>
-        <button id="cookie-accept"
-            style="margin-left:20px;padding:10px 24px;border:none;border-radius:20px;background:linear-gradient(135deg,#c77dff 0%,#9d4edd 100%);color:#ffffff;font-weight:700;cursor:pointer;transition:all 0.3s ease;box-shadow:0 4px 16px rgba(199, 125, 255, 0.4);">Allow</button>
+
+    <div id="cookie-banner" class="cookie-banner">
+        <span class="cookie-text">This website uses cookies to ensure you get the best experience.</span>
+        <button id="cookie-accept" class="cookie-button">Accept</button>
     </div>
 </body>
 
