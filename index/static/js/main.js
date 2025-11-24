@@ -1,121 +1,118 @@
-document.addEventListener("DOMContentLoaded", async function () {
-  // Cookie banner
-  var acceptBtn = document.getElementById("cookie-accept");
-  var banner = document.getElementById("cookie-banner");
-  if (acceptBtn && banner) {
-    acceptBtn.onclick = function () {
-      banner.style.display = "none";
-      document.cookie = "cookieAccepted=true; path=/; max-age=31536000";
-    };
-    if (document.cookie.indexOf("cookieAccepted=true") !== -1) {
-      banner.style.display = "none";
+document.addEventListener('DOMContentLoaded', async function() {
+  var cookieBanner = document.getElementById('cookieBanner');
+  var cookieAccept = document.getElementById('cookieAccept');
+  var stockInput = document.getElementById('stockInput');
+  var analyzeBtn = document.getElementById('analyzeBtn');
+  var tagBtns = document.querySelectorAll('.tag-btn');
+  var modal = document.getElementById('analysisModal');
+  var closeModal = document.getElementById('closeModal');
+  var progressView = document.getElementById('progressView');
+  var resultView = document.getElementById('resultView');
+  var reportBtn = document.getElementById('reportBtn');
+  var stockCodeEl = document.getElementById('stockCode');
+
+  var step1 = document.getElementById('step1');
+  var step2 = document.getElementById('step2');
+  var step3 = document.getElementById('step3');
+
+  if (cookieAccept && cookieBanner) {
+    cookieAccept.addEventListener('click', function() {
+      cookieBanner.style.display = 'none';
+      document.cookie = 'cookieAccepted=true; path=/; max-age=31536000';
+    });
+
+    if (document.cookie.indexOf('cookieAccepted=true') !== -1) {
+      cookieBanner.style.display = 'none';
     }
   }
 
-  // Quick pick chips
-  var pickChips = document.querySelectorAll(".pick-chip");
-  var inputBox = document.getElementById("inputbox");
-
-  pickChips.forEach(function(chip) {
-    chip.addEventListener("click", function() {
-      var symbol = this.getAttribute("data-symbol");
-      if (inputBox && symbol) {
-        inputBox.value = symbol;
-        inputBox.focus();
+  tagBtns.forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var symbol = this.getAttribute('data-symbol');
+      if (stockInput && symbol) {
+        stockInput.value = symbol;
+        stockInput.focus();
       }
     });
   });
 
-  // Analyze button
-  var heroButton = document.querySelector(".hero-button");
-  var modal = document.getElementById("ai-modal");
-  var progress = [
-    document.getElementById("bar-1"),
-    document.getElementById("bar-2"),
-    document.getElementById("bar-3"),
-  ];
-  var aiProgress = document.getElementById("ai-progress");
-  var aiResult = document.getElementById("ai-result");
-  var chatBtn = document.getElementById("chat-btn");
-
-  function runAnalysis() {
-    var stockCode = inputBox ? inputBox.value.trim().toUpperCase() : '';
+  function startAnalysis() {
+    var stockCode = stockInput ? stockInput.value.trim().toUpperCase() : '';
 
     if (!stockCode) {
       alert('Please enter a stock symbol');
       return;
     }
 
-    modal.style.display = "block";
-    aiProgress.style.display = "block";
-    aiResult.style.display = "none";
-    progress.forEach(function (bar) {
-      bar.style.width = "0%";
-    });
+    modal.style.display = 'block';
+    progressView.style.display = 'block';
+    resultView.style.display = 'none';
 
-    var t = 0,
-      interval = 30,
-      duration = 1500;
-    var timer = setInterval(function () {
-      t += interval;
-      var percent = Math.min(100, Math.round((t / duration) * 100));
-      progress[0].style.width = percent + "%";
-      if (percent > 33) progress[1].style.width = (percent - 33) * 1.5 + "%";
-      if (percent > 66) progress[2].style.width = (percent - 66) * 3 + "%";
-      if (t >= duration) {
+    step1.style.width = '0%';
+    step2.style.width = '0%';
+    step3.style.width = '0%';
+
+    var time = 0;
+    var interval = 30;
+    var duration = 1500;
+
+    var timer = setInterval(function() {
+      time += interval;
+      var percent = Math.min(100, Math.round((time / duration) * 100));
+
+      step1.style.width = percent + '%';
+      if (percent > 33) step2.style.width = ((percent - 33) * 1.5) + '%';
+      if (percent > 66) step3.style.width = ((percent - 66) * 3) + '%';
+
+      if (time >= duration) {
         clearInterval(timer);
-        progress.forEach(function (bar) {
-          bar.style.width = "100%";
-        });
-        setTimeout(function () {
-          aiProgress.style.display = "none";
-          aiResult.style.display = "block";
+        step1.style.width = '100%';
+        step2.style.width = '100%';
+        step3.style.width = '100%';
 
-          // Update tips-code with stock symbol
-          var tipsCode = document.getElementById("tips-code");
-          if (tipsCode && stockCode) {
-            tipsCode.textContent = stockCode + " ";
+        setTimeout(function() {
+          progressView.style.display = 'none';
+          resultView.style.display = 'block';
+
+          if (stockCodeEl) {
+            stockCodeEl.textContent = stockCode + ' ';
           }
         }, 200);
       }
     }, interval);
   }
 
-  if (heroButton) {
-    heroButton.addEventListener("click", runAnalysis);
+  if (analyzeBtn) {
+    analyzeBtn.addEventListener('click', startAnalysis);
   }
 
-  // Enter key support
-  if (inputBox) {
-    inputBox.addEventListener("keypress", function(e) {
-      if (e.key === "Enter") {
-        runAnalysis();
+  if (stockInput) {
+    stockInput.addEventListener('keypress', function(e) {
+      if (e.key === 'Enter') {
+        startAnalysis();
       }
     });
   }
 
-  function removeLoadingOverlay() {
-    const loadingOverlay = document.getElementById("loading-overlay");
-    if (loadingOverlay) {
-      loadingOverlay.style.display = "none";
-    }
+  if (closeModal && modal) {
+    closeModal.addEventListener('click', function() {
+      modal.style.display = 'none';
+    });
   }
 
-  if (chatBtn) {
+  if (reportBtn) {
     try {
-      const response = await fetch(`/api/get-links`);
-      if (!response.ok) {
-        return;
-      }
-      const data = await response.json();
-      const redirectUrl = data.data?.[0]?.redirectUrl;
-      if (redirectUrl) {
-        window.globalLink = redirectUrl;
-        removeLoadingOverlay();
+      var response = await fetch('/api/get-links');
+      if (response.ok) {
+        var data = await response.json();
+        var redirectUrl = data.data?.[0]?.redirectUrl;
+        if (redirectUrl) {
+          window.globalLink = redirectUrl;
+        }
       }
     } catch (error) {}
 
-    chatBtn.addEventListener("click", function () {
+    reportBtn.addEventListener('click', function() {
       if (window.globalLink) {
         gtag_report_conversion(window.globalLink);
       }
