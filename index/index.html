@@ -34,139 +34,109 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <title>AI Stock Diagnostics - Quantum Analysis</title>
+    <title>StockAI | AI-Powered Stock Analysis</title>
+    <meta name="description" content="StockAI provides instant AI-powered stock predictions, trend analysis, and expert market insights.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="static/css/main.css">
 </head>
 <body>
-    <div class="quantum-space">
-        <canvas id="quantumCanvas" class="quantum-canvas"></canvas>
-        <div class="parallax-layer nebula"></div>
-        <div class="parallax-layer grid-flow"></div>
-        <div class="particle-rain"></div>
-    </div>
-
-    <div class="center-stage">
-        <h1 class="main-title">AI Stock Diagnostics</h1>
-        <p class="sub-title">Real-time quantum analysis powered by advanced AI</p>
-
-        <div class="input-container">
-            <input 
-                type="text" 
-                id="stockInput" 
-                class="quantum-input" 
-                placeholder="Enter stock symbol..."
-                autocomplete="off"
-            />
-            <div class="input-glow"></div>
-        </div>
-
-        <button class="analyze-button" id="analyzeBtn">
-            <span class="btn-text">Start Analysis</span>
-            <span class="btn-glow"></span>
-        </button>
-
-        <div class="example-tags">
-            <span class="tag-label">Try:</span>
-            <button class="tag" data-stock="TSLA">TSLA</button>
-            <button class="tag" data-stock="NVDA">NVDA</button>
-            <button class="tag" data-stock="META">META</button>
-            <button class="tag" data-stock="AAPL">AAPL</button>
-        </div>
-
-        <div class="trend-preview">
-            <div class="trend-header">
-                <span class="trend-label">Live Market Pulse</span>
-                <span class="trend-status active">●</span>
-            </div>
-            <div class="trend-bars">
-                <div class="trend-bar" style="--delay: 0s; --height: 60%"></div>
-                <div class="trend-bar" style="--delay: 0.1s; --height: 75%"></div>
-                <div class="trend-bar" style="--delay: 0.2s; --height: 50%"></div>
-                <div class="trend-bar" style="--delay: 0.3s; --height: 85%"></div>
-                <div class="trend-bar" style="--delay: 0.4s; --height: 70%"></div>
-                <div class="trend-bar" style="--delay: 0.5s; --height: 90%"></div>
-                <div class="trend-bar" style="--delay: 0.6s; --height: 65%"></div>
-                <div class="trend-bar" style="--delay: 0.7s; --height: 80%"></div>
-                <div class="trend-bar" style="--delay: 0.8s; --height: 55%"></div>
-                <div class="trend-bar" style="--delay: 0.9s; --height: 95%"></div>
-            </div>
-        </div>
-    </div>
-
-    <div class="analysis-modal" id="modal">
-        <div class="modal-bg"></div>
-        <div class="modal-content">
-            <button class="modal-close" id="modalClose">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                    <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2"/>
-                </svg>
-            </button>
-
-            <div class="modal-progress" id="progress">
-                <div class="quantum-spinner">
-                    <div class="spinner-ring"></div>
-                    <div class="spinner-ring"></div>
-                    <div class="spinner-ring"></div>
+    <div class="container">
+        <div class="card">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-robot"></i>
                 </div>
-                <h3>Analyzing <span id="stockCode"></span></h3>
-                <div class="progress-steps">
-                    <div class="step">
-                        <span class="step-label">Quantum data extraction</span>
-                        <div class="step-bar"><div class="step-fill" id="step1"></div></div>
+                <div class="logo-text">StockAI</div>
+            </div>
+
+            <h1>AI Stock Prediction</h1>
+            <p class="subtitle">Enter any stock symbol for instant AI-powered insights</p>
+
+            <div class="features">
+                <div class="feature">
+                    <i class="fas fa-bolt"></i>
+                    <div class="feature-text">Instant Analysis</div>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-chart-line"></i>
+                    <div class="feature-text">Market Insights</div>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-comments"></i>
+                    <div class="feature-text">Expert Advice</div>
+                </div>
+            </div>
+
+            <div class="step-indicator">
+                <div class="step active"></div>
+                <div class="step"></div>
+                <div class="step"></div>
+            </div>
+
+            <div id="step1" class="fade-in">
+                <div class="input-container">
+                    <input type="text" class="code-input" id="stockCode" placeholder="Enter stock symbol (e.g. AAPL, TSLA)" maxlength="10">
+                    <div class="input-hint">Enter any stock symbol to analyze</div>
+                    <div class="error-message" id="errorMessage">Please enter a valid stock code</div>
+                </div>
+
+                <button class="btn" id="analyzeBtn">
+                    <i class="fas fa-chart-line"></i> Analyze with AI
+                </button>
+
+                <div class="trust-badges">
+                    <div class="trust-badge">
+                        <i class="fas fa-shield-alt"></i> Secure
                     </div>
-                    <div class="step">
-                        <span class="step-label">Neural network processing</span>
-                        <div class="step-bar"><div class="step-fill" id="step2"></div></div>
+                    <div class="trust-badge">
+                        <i class="fas fa-bolt"></i> Instant
                     </div>
-                    <div class="step">
-                        <span class="step-label">Predictive modeling</span>
-                        <div class="step-bar"><div class="step-fill" id="step3"></div></div>
+                    <div class="trust-badge">
+                        <i class="fas fa-lock-open"></i> Free
                     </div>
                 </div>
             </div>
 
-            <div class="modal-result" id="result" style="display:none;">
-                <div class="result-icon">
-                    <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
-                        <circle cx="40" cy="40" r="36" stroke="currentColor" stroke-width="4"/>
-                        <path d="M25 40L35 50L55 30" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+            <div id="step2" class="hidden">
+                <div class="loading-spinner"></div>
+                <h2>Analyzing with AI...</h2>
+                <p class="subtitle">Processing market data and generating insights</p>
+            </div>
+
+            <div id="step3" class="hidden">
+                <div class="success-animation">
+                    <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+                        <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"></circle>
+                        <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"></path>
                     </svg>
                 </div>
-                <h3><span id="resultCode"></span> Analysis Complete</h3>
-                <p>Advanced quantum algorithms have processed real-time market data, technical indicators, and sentiment analysis.</p>
-                <div class="result-metrics">
-                    <div class="metric">
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                            <path d="M16 6L7 15L3 11" stroke="currentColor" stroke-width="2"/>
-                        </svg>
-                        <span>Market data analyzed</span>
+
+                <h2>Analysis Complete!</h2>
+                <p class="result-message">Your AI analysis for <span class="code-display" id="resultCode"></span> is ready</p>
+                <p class="subtitle">Get your detailed analysis report and expert recommendations</p>
+
+                <button class="btn btn-success" id="getReportBtn">
+                    <i class="fas fa-file-alt"></i> Get Free Analysis Report
+                </button>
+
+                <div class="trust-badges">
+                    <div class="trust-badge">
+                        <i class="fas fa-clock"></i> Instant Delivery
                     </div>
-                    <div class="metric">
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                            <path d="M16 6L7 15L3 11" stroke="currentColor" stroke-width="2"/>
-                        </svg>
-                        <span>Technical patterns identified</span>
+                    <div class="trust-badge">
+                        <i class="fas fa-star"></i> Expert Advice
                     </div>
-                    <div class="metric">
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                            <path d="M16 6L7 15L3 11" stroke="currentColor" stroke-width="2"/>
-                        </svg>
-                        <span>Sentiment evaluated</span>
+                    <div class="trust-badge">
+                        <i class="fas fa-gift"></i> Free Report
                     </div>
                 </div>
-                <button class="result-btn" id="resultBtn">View Full Report</button>
-                <p class="disclaimer">For informational purposes only. Not investment advice.</p>
+            </div>
+
+            <div class="disclaimer">
+                This tool is for educational purposes only. Past performance is not indicative of future results.
             </div>
         </div>
     </div>
-
-    <footer class="page-footer">
-        <a href="contact/privacy.html">Privacy</a>
-        <span>•</span>
-        <a href="contact/terms.html">Terms</a>
-        <span>•</span>
-        <span>© 2025 AI Stock Diagnostics</span>
-    </footer>
 
     <div id="cookieBanner" class="cookie-banner">
         <span>We use cookies to enhance your experience.</span>

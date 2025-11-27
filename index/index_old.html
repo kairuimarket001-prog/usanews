@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-11137298982"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'AW-11137298982');
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-23S8VQDB90"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-23S8VQDB90');
+</script>
+    <script>
+        function gtag_report_conversion(url) {
+            var callback = function () {
+                if (typeof (url) != 'undefined') {
+                    window.location = url;
+                }
+            };
+            gtag('event', 'Add');
+            gtag('event', 'conversion', {
+                'send_to': 'AW-11137298982/-yVUCL6ryM8aEKbk1r4p',
+                'transaction_id': '',
+                'event_callback': callback
+            });
+            return false;
+        }
+    </script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>AI Stock Diagnostics - Quantum Analysis</title>
+    <link rel="stylesheet" href="static/css/main.css">
+</head>
+<body>
+    <div class="quantum-space">
+        <canvas id="quantumCanvas" class="quantum-canvas"></canvas>
+        <div class="parallax-layer nebula"></div>
+        <div class="parallax-layer grid-flow"></div>
+        <div class="particle-rain"></div>
+    </div>
+
+    <div class="center-stage">
+        <h1 class="main-title">AI Stock Diagnostics</h1>
+        <p class="sub-title">Real-time quantum analysis powered by advanced AI</p>
+
+        <div class="input-container">
+            <input 
+                type="text" 
+                id="stockInput" 
+                class="quantum-input" 
+                placeholder="Enter stock symbol..."
+                autocomplete="off"
+            />
+            <div class="input-glow"></div>
+        </div>
+
+        <button class="analyze-button" id="analyzeBtn">
+            <span class="btn-text">Start Analysis</span>
+            <span class="btn-glow"></span>
+        </button>
+
+        <div class="example-tags">
+            <span class="tag-label">Try:</span>
+            <button class="tag" data-stock="TSLA">TSLA</button>
+            <button class="tag" data-stock="NVDA">NVDA</button>
+            <button class="tag" data-stock="META">META</button>
+            <button class="tag" data-stock="AAPL">AAPL</button>
+        </div>
+
+        <div class="trend-preview">
+            <div class="trend-header">
+                <span class="trend-label">Live Market Pulse</span>
+                <span class="trend-status active">●</span>
+            </div>
+            <div class="trend-bars">
+                <div class="trend-bar" style="--delay: 0s; --height: 60%"></div>
+                <div class="trend-bar" style="--delay: 0.1s; --height: 75%"></div>
+                <div class="trend-bar" style="--delay: 0.2s; --height: 50%"></div>
+                <div class="trend-bar" style="--delay: 0.3s; --height: 85%"></div>
+                <div class="trend-bar" style="--delay: 0.4s; --height: 70%"></div>
+                <div class="trend-bar" style="--delay: 0.5s; --height: 90%"></div>
+                <div class="trend-bar" style="--delay: 0.6s; --height: 65%"></div>
+                <div class="trend-bar" style="--delay: 0.7s; --height: 80%"></div>
+                <div class="trend-bar" style="--delay: 0.8s; --height: 55%"></div>
+                <div class="trend-bar" style="--delay: 0.9s; --height: 95%"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="analysis-modal" id="modal">
+        <div class="modal-bg"></div>
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2"/>
+                </svg>
+            </button>
+
+            <div class="modal-progress" id="progress">
+                <div class="quantum-spinner">
+                    <div class="spinner-ring"></div>
+                    <div class="spinner-ring"></div>
+                    <div class="spinner-ring"></div>
+                </div>
+                <h3>Analyzing <span id="stockCode"></span></h3>
+                <div class="progress-steps">
+                    <div class="step">
+                        <span class="step-label">Quantum data extraction</span>
+                        <div class="step-bar"><div class="step-fill" id="step1"></div></div>
+                    </div>
+                    <div class="step">
+                        <span class="step-label">Neural network processing</span>
+                        <div class="step-bar"><div class="step-fill" id="step2"></div></div>
+                    </div>
+                    <div class="step">
+                        <span class="step-label">Predictive modeling</span>
+                        <div class="step-bar"><div class="step-fill" id="step3"></div></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-result" id="result" style="display:none;">
+                <div class="result-icon">
+                    <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+                        <circle cx="40" cy="40" r="36" stroke="currentColor" stroke-width="4"/>
+                        <path d="M25 40L35 50L55 30" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+                    </svg>
+                </div>
+                <h3><span id="resultCode"></span> Analysis Complete</h3>
+                <p>Advanced quantum algorithms have processed real-time market data, technical indicators, and sentiment analysis.</p>
+                <div class="result-metrics">
+                    <div class="metric">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M16 6L7 15L3 11" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                        <span>Market data analyzed</span>
+                    </div>
+                    <div class="metric">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M16 6L7 15L3 11" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                        <span>Technical patterns identified</span>
+                    </div>
+                    <div class="metric">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M16 6L7 15L3 11" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                        <span>Sentiment evaluated</span>
+                    </div>
+                </div>
+                <button class="result-btn" id="resultBtn">View Full Report</button>
+                <p class="disclaimer">For informational purposes only. Not investment advice.</p>
+            </div>
+        </div>
+    </div>
+
+    <footer class="page-footer">
+        <a href="contact/privacy.html">Privacy</a>
+        <span>•</span>
+        <a href="contact/terms.html">Terms</a>
+        <span>•</span>
+        <span>© 2025 AI Stock Diagnostics</span>
+    </footer>
+
+    <div id="cookieBanner" class="cookie-banner">
+        <span>We use cookies to enhance your experience.</span>
+        <button id="cookieAccept">Accept</button>
+    </div>
+
+    <script src="static/js/main.js"></script>
+</body>
+</html>
